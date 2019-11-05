@@ -69,7 +69,7 @@ RUN docker-php-ext-install mysqli \
     && docker-php-ext-enable redis
 
 # disable by default, it can be enabled locally
-#COPY config/php/mods-available/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+COPY config/php/mods-available/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 COPY config/php/mods-available/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 COPY config/php/opcache-blacklist /usr/local/etc/php/opcache-blacklist
 
@@ -91,4 +91,4 @@ RUN git clone https://github.com/longxinH/xhprof.git xhprof \
 
 COPY config/php/mods-available/xhprof.ini /usr/local/etc/php/conf.d/xhprof.ini
 
-WORKDIR "/var/www/html/sugar"
+WORKDIR "/var/www/html"
